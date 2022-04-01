@@ -1,6 +1,6 @@
 <?php
 
-namespace Adsoft-team\UploadImage\Exceptions;
+namespace ADSoft\UploadImage\Exceptions;
 
 use Exception;
 

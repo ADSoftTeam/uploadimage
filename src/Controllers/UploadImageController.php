@@ -4,12 +4,12 @@
  * Controller for upload images from WYSIWYG and Delete image from WYSIWYG.
  */
 
-namespace Adsoft-team\UploadImage\Controllers;
+namespace ADSoft\UploadImage\Controllers;
 
-use Adsoft-team\UploadImage\UploadImageFacade as UploadImage;
+use ADSoft\UploadImage\UploadImageFacade as UploadImage;
 use Illuminate\Routing\Controller;
 use Illuminate\Http\Request;
-use Adsoft-team\UploadImage\Exceptions\UploadImageException;
+use ADSoft\UploadImage\Exceptions\UploadImageException;
 
 class UploadImageController extends Controller
 {

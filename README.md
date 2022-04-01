@@ -41,7 +41,7 @@ This package give you next opportunities:
 
 ### Add package to your project:
 ```
-composer require adsoft-team/uploadimage
+composer require ADSoft/uploadimage
 ```
 
 ### Add to file config/app.php next entries:
@@ -51,7 +51,7 @@ Section Providers:
 'providers' => [
     .......
     Spatie\Glide\GlideServiceProvider::class,
-    Adsoft-team\UploadImage\UploadImageServiceProvider::class,
+    ADSoft\UploadImage\UploadImageServiceProvider::class,
 ]
 ```
 
@@ -60,13 +60,13 @@ Section Facades:
 'aliases' => [
     .......
     'GlideImage' => Spatie\Glide\GlideImageFacade::class,
-    'UploadImage' => Adsoft-team\UploadImage\UploadImageFacade::class,
+    'UploadImage' => ADSoft\UploadImage\UploadImageFacade::class,
 ]
 ```
 
 Enter next command to a terminal:
 ```
-php artisan vendor:publish --provider="Adsoft-team\UploadImage\UploadImageServiceProvider"
+php artisan vendor:publish --provider="ADSoft\UploadImage\UploadImageServiceProvider"
 ```
 
 Will be copied two files:
@@ -124,7 +124,7 @@ For example:
 Add to your controller 
 ```
 use UploadImage;
-use Adsoft-team\UploadImage\Exceptions\UploadImageException;
+use ADSoft\UploadImage\Exceptions\UploadImageException;
 ```
 
 ```php
