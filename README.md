@@ -4,6 +4,7 @@ For Laravel 6.x / 7.x / 8.x
 
 * [Demo](https://yousuper.org/)
 * [Site author](https://cleverman.org/)
+* [Site fork author](https://ad-soft.info/)
 * [Rus article](https://cleverman.org/post/37) 
 
 This package give you next opportunities:
@@ -40,7 +41,7 @@ This package give you next opportunities:
 
 ### Add package to your project:
 ```
-composer require kirill-dan/uploadimage 2.*
+composer require adsoft-team/uploadimage
 ```
 
 ### Add to file config/app.php next entries:
