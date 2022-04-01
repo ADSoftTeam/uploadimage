@@ -1,16 +1,18 @@
 {
-    "name": "kirill-dan/uploadimage",
+    "name": "ADSoftTeam/uploadimage",
     "description": "Upload images to the content type folder.",
-    "homepage": "https://github.com/kirill-dan/uploadimage",
+    "homepage": "https://github.com/ADSoftTeam/uploadimage.git",
     "license": "MIT",
     "authors": [
         {
-            "name": "Kirill Danilevsky",
-            "email": "k.danilevsky@gmail.com"
+            "name": "Andrey Denisov",
+            "email": "support@ad-soft.info"
         }
     ],
     "require": {
         "php": ">=7.0",
+		"illuminate/support": ">=6.0",
+        "illuminate/http": ">=6.0",
         "spatie/laravel-glide": "^3.0"
     },
     "autoload": {
