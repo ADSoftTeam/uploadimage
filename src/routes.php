@@ -1,7 +1,7 @@
 <?php
 
 // Paths for ajax functions.
-Route::group(['prefix' => 'ajax', 'namespace' => 'Dan\UploadImage\Controllers'], function () {
+Route::group(['prefix' => 'ajax', 'namespace' => 'Adsoft-team\UploadImage\Controllers'], function () {
 
     // Save image from WYSIWYG editor.
     Route::post('uploader/upload', 'UploadImageController@upload');

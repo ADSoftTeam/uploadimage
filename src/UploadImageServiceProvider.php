@@ -1,6 +1,6 @@
 <?php
 
-namespace Dan\UploadImage;
+namespace Adsoft-team\UploadImage;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Contracts\Container\Container;

@@ -4,11 +4,11 @@
  * Class for work with images.
  */
 
-namespace Dan\UploadImage;
+namespace Adsoft-team\UploadImage;
 
 use Illuminate\Filesystem\Filesystem as File;
 use Spatie\Glide\GlideImage;
-use Dan\UploadImage\Exceptions\UploadImageException;
+use Adsoft-team\UploadImage\Exceptions\UploadImageException;
 use Illuminate\Support\Str;
 
 class UploadImage
@@ -186,8 +186,8 @@ class UploadImage
      * @param $contentName string content name (folder name for save)
      *
      * @return string path to file
-     * @throws \Dan\UploadImage\Exceptions\UploadImageException
-     * @throws \Dan\UploadImage\Exceptions\UploadImageException
+     * @throws \Adsoft-team\UploadImage\Exceptions\UploadImageException
+     * @throws \Adsoft-team\UploadImage\Exceptions\UploadImageException
      */
     public function saveLinkImage($file, $contentName)
     {
@@ -387,8 +387,8 @@ class UploadImage
      * @param $contentName string Model name
      *
      * @return string path to file with name
-     * @throws \Dan\UploadImage\Exceptions\UploadImageException
-     * @throws \Dan\UploadImage\Exceptions\UploadImageException
+     * @throws \Adsoft-team\UploadImage\Exceptions\UploadImageException
+     * @throws \Adsoft-team\UploadImage\Exceptions\UploadImageException
      */
     public function saveFileToDisk($file, $contentName)
     {

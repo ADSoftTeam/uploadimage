@@ -51,7 +51,7 @@ Section Providers:
 'providers' => [
     .......
     Spatie\Glide\GlideServiceProvider::class,
-    Dan\UploadImage\UploadImageServiceProvider::class,
+    Adsoft-team\UploadImage\UploadImageServiceProvider::class,
 ]
 ```
 
@@ -60,13 +60,13 @@ Section Facades:
 'aliases' => [
     .......
     'GlideImage' => Spatie\Glide\GlideImageFacade::class,
-    'UploadImage' => Dan\UploadImage\UploadImageFacade::class,
+    'UploadImage' => Adsoft-team\UploadImage\UploadImageFacade::class,
 ]
 ```
 
 Enter next command to a terminal:
 ```
-php artisan vendor:publish --provider="Dan\UploadImage\UploadImageServiceProvider"
+php artisan vendor:publish --provider="Adsoft-team\UploadImage\UploadImageServiceProvider"
 ```
 
 Will be copied two files:
@@ -124,7 +124,7 @@ For example:
 Add to your controller 
 ```
 use UploadImage;
-use Dan\UploadImage\Exceptions\UploadImageException;
+use Adsoft-team\UploadImage\Exceptions\UploadImageException;
 ```
 
 ```php
