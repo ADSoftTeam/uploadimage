@@ -1,4 +1,4 @@
-# UploadImage v2.0.2
+# UploadImage v2.0.21
 
 For Laravel 6.x / 7.x / 8.x
 
@@ -19,6 +19,7 @@ This package give you next opportunities:
  * You can storing your images on the disk or in the DB in the Base64 format
  
  ## History:
+ * v2.0.21 -  if config property originalResize is null - dont resize original
  * v2.0.2 -  Fix error str_random() -> replase Str:random() for Laravel 6.x and greater
  * v2.0.1 -  Thumbnails can assign in method: upload($file, $contentName, $watermark = false, $video = false, $thumbnails = false)
  * v2.0 -    Support Laravel 5.5

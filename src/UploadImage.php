@@ -126,7 +126,7 @@ class UploadImage
         $imageStorage = $this->baseStore . $contentName . 's/';
         // Path to file system.
         $imagePath = public_path() . $imageStorage;
-
+				
         // If file URL string.
         if (is_string($file) && !empty($file)) {
             $newName = $this->saveLinkImage($file, $contentName);
@@ -152,7 +152,7 @@ class UploadImage
         $image_width = getimagesize($originalPath)[0];
 
         // If image width more then originalResize - make resize it.
-        if ($image_width > $this->originalResize) {
+        if (!empty($this->originalResize) && ($image_width > $this->originalResize)) {
             // Add resize attribute.
             $watermark_array['w'] = $this->originalResize;
         }
@@ -395,7 +395,7 @@ class UploadImage
         // Create path for storage and full path to image.
         $imageStorage = $this->baseStore . $contentName . 's/';
         $imagePath = public_path() . $imageStorage;
-
+				
         // Check if image.
         if (!getimagesize($file)) {
             throw new UploadImageException('File should be image format!');
