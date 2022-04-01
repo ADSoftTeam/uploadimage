@@ -17,7 +17,7 @@
     },
     "autoload": {
         "psr-4": {
-            "ADSoft\\UploadImage\\": "src/"
+            "AdsoftTeam\\UploadImage\\": "src/"
         }
     },
     "minimum-stability": "stable"

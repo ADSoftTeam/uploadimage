@@ -3,7 +3,7 @@
  * Get images data.
  */
 
-namespace ADSoft\UploadImage;
+namespace AdsofTeam\UploadImage;
 
 
 class UploadImageGet
