@@ -41,7 +41,7 @@ This package give you next opportunities:
 
 ### Add package to your project:
 ```
-composer require ADSoft/uploadimage
+composer require adsoftteam/uploadimage dev-master
 ```
 
 ### Add to file config/app.php next entries:

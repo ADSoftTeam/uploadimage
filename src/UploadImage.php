@@ -101,7 +101,7 @@ class UploadImage
         $this->min_width = $config['min_width'];
         $this->previewWidth = $config['previewWidth'];
         $this->editor_folder = $config['editor_folder'];
-        $this->glide_properties = $config['glide_properties'];
+        $this->glide_properties = isset($config['glide_properties']) ?? $config['glide_properties'];
 
         $this->file = new File();
     }
