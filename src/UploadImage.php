@@ -196,8 +196,12 @@ class UploadImage
         $imagePath = public_path() . $imageStorage;
 
         $file = trim($file);
-        $imageSize = getimagesize($file);
+		if (!file_exists($file)) {
+			throw new UploadImageException("File $file not open");
+		}
 
+		$imageSize = getimagesize($file);
+		
         // Check if image.
         if (!$imageSize) {
             throw new UploadImageException('File should be image format!');
