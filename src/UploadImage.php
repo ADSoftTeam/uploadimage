@@ -120,8 +120,7 @@ class UploadImage
      */
     public function upload($file, $contentName, $watermark = false, $video = false, $thumbnails = false, $size = false)
     {
-        //$thumbnails = $this->thumbnail_status;
-
+        //$thumbnails = $this->thumbnail_status;	
         // Create path for storage and full path to image.
         $imageStorage = $this->baseStore . $contentName . 's/';
         // Path to file system.
@@ -175,7 +174,7 @@ class UploadImage
         $url = $imageStorage . $this->original . $newName;
 
         $newImage = new UploadImageGet($newName, $url, $originalPath);
-
+		
         return $newImage;
     }
 
@@ -389,39 +388,46 @@ class UploadImage
      *
      * @param $file object file from input form
      * @param $contentName string Model name
+	 * @param $checkImage bool true - load and check images / false - load other files without check
+	 * @param $subFolder string subfolder
      *
      * @return string path to file with name
      * @throws \ADSoft\UploadImage\Exceptions\UploadImageException
      * @throws \ADSoft\UploadImage\Exceptions\UploadImageException
      */
-    public function saveFileToDisk($file, $contentName)
+    public function saveFileToDisk($file, $contentName, $checkImage = true)
     {
-        // Create path for storage and full path to image.
+        // Create path for storage and full path to image.		
+		
         $imageStorage = $this->baseStore . $contentName . 's/';
         $imagePath = public_path() . $imageStorage;
-				
+		
+		$ext = strtolower($file->getClientOriginalExtension());
+		
         // Check if image.
-        if (!getimagesize($file)) {
-            throw new UploadImageException('File should be image format!');
-        }
+        if ($checkImage) {
+			if (!getimagesize($file)) {
+				throw new UploadImageException('File should be image format!');
+			}
 
-        // Get real path to file.
-        $pathToFile = $file->getPathname();
-
-        // Get image size.
-        $imageSize = getimagesize($pathToFile);
-
-        // If width image < $this->min_width (default 500px).
-        if ($imageSize[0] < $this->min_width) {
-            throw new UploadImageException('Image should be more then ' . $this->min_width . 'px');
-        }
-
-        // Get real image extension.
-        $ext = explode('/', $imageSize['mime'])[1];
-
+			// Get real path to file.
+			$pathToFile = $file->getPathname();
+	
+			// Get image size.
+			$imageSize = getimagesize($pathToFile);
+	
+			// If width image < $this->min_width (default 500px).
+			if ($imageSize[0] < $this->min_width) {
+				throw new UploadImageException('Image should be more then ' . $this->min_width . 'px');
+			}
+	
+			// Get real image extension.			
+			$ext = explode('/', $imageSize['mime'])[1];
+		}
+		
         // Generate new file name.
         $newName = $this->generateNewName($contentName, $ext);
-
+		
         // Save image to disk.
         $file->move($imagePath . $this->original, $newName);
 
@@ -432,7 +438,7 @@ class UploadImage
      * Generate new name for image.
      *
      * @param $contentName string Model name
-     * @param $ext string extension of image file
+     * @param $ext string extension of image file	 
      *
      * @return string
      */
@@ -567,4 +573,77 @@ class UploadImage
             $this->file->delete($imagePath . 'w' . $width . ($height ? 'h' . $height : '') . '/' . $imageName);
         }
     }
+	
+	 /**
+     * Upload file to disk.
+     *
+     * @param $file object file
+     * @param $contentName string content name (use for create and named folder)    
+     *
+     * @return object image
+     * @throws UploadFileException
+     */
+    public function uploadFile($file, $contentName)
+    {
+        // Create path for storage and full path to file.
+        $fileStorage = $this->baseStore . $contentName . 's/';
+        // Path to file system.
+        $filePath = public_path() . $fileStorage;
+				
+        /*
+		// If file URL string.
+        if (is_string($file) && !empty($file)) {
+            $newName = $this->saveLinkImage($file, $contentName);
+        }*/
+
+        // If file from form. Save file to disk.
+        if (is_object($file)) {
+            $newName = $this->saveFileToDisk($file, $contentName, false);
+        }
+
+        // If file was uploaded 
+        if (!isset($newName)) {
+            throw new UploadImageException('Can\'t upload file!');
+        }
+       
+        // Path to file in file system.
+        $originalPath = $filePath . $this->original . $newName;
+
+        // Url to file.
+        $url = $fileStorage . $this->original . $newName;
+
+        $newFile = new UploadImageGet($newName, $url, $originalPath);
+
+        return $newFile;
+    }
+	
+	/**
+     * Save file to disk.
+     *
+     * @param $file object file from input form
+     * @param $contentName string Model name
+     *
+     * @return string path to file with name    
+     */
+	 /*
+    public function saveFileToDisk($file, $contentName)
+    {
+        // Create path for storage and full path to image.
+        $imageStorage = $this->baseStore . $contentName . 's/';
+        $imagePath = public_path() . $imageStorage;
+		        
+        // Get real path to file.
+        $pathToFile = $file->getPathname();
+        
+        // Get real image extension.
+        $ext = \File::extension($file);//explode('/', $imageSize['mime'])[1];
+
+        // Generate new file name.
+        $newName = $this->generateNewName($contentName, $ext);
+
+        // Save image to disk.
+        $file->move($imagePath . $this->original, $newName);
+
+        return $newName;
+    }*/
 }
